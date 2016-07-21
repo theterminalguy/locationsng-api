@@ -2,7 +2,7 @@ module Api
   module V1 
     class LgasController < ApplicationController
       def index 
-        @lgas = LocationsNg::Lga.new.all
+        @lgas = LocationsNg::Lga.all
 
         render json: @lgas 
       end 

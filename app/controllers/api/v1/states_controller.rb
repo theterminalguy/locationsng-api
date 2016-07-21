@@ -29,7 +29,7 @@ module Api
       private 
 
       def set_ng_state 
-        @ng_state =  LocationsNg::State.new 
+        @ng_state =  LocationsNg::State
       end 
 
       def state_params 
