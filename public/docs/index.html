@@ -1,0 +1,450 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>locationsng-api API Docs</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;curl&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="images/logo.png" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="curl">curl</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="introduction">Introduction</h1>
+
+<p>The locationsng-api is an open-source api containing list of all locations in Nigeria. You can get information such as 
+- States 
+- Cities 
+- Local Government Area 
+- Streets </p>
+
+<p>locationsng-api is hosted on <a href="http://github.com/andela-sdamian/locationsng">GitHub</a></p>
+
+<p>Thanks.</p>
+
+<h1 id="authentication">Authentication</h1>
+
+<p><code class="prettyprint">
+No Authentication require 
+</code></p>
+
+<aside class="notice">
+100% Open Source.
+</aside>
+
+<h2 id="get-all-cities">Get All Cities</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://locationsng-api/api/v1/cities"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"states"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Akwa Ibom"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"alias"</span><span class="p">:</span><span class="w"> </span><span class="s2">"akwa_ibom"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"cities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"Eket"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Ikot Ekpene"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Oron"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Uyo"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"states"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bauchi"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"alias"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bauchi"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"cities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"bauchi"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all cities in Nigeria.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://locationsng-api/api/v1/cities</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<p>No parameter required</p>
+
+<h2 id="get-all-local-governments">Get All Local Governments</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://locationsng-api/api/v1/lgas"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adamawa"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"alias"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adamawa"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"lgas"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"Demsa"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Fufure"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Ganye"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Gayuk"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Gombi"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Grie"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Hong"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Jada"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Larmurde"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Madagali"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Maiha"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Mayo Belwa"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Michika"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Mubi North"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Mubi South"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Numan"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Shelleng"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Song"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Toungo"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Yola North"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Yola South"</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all local governments in Nigeria.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://locationsng-api/api/v1/lgas</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<p>No parameter required</p>
+
+<h2 id="get-all-states">Get All States</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://locationsng-api/api/v1/states"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Abia"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"capital"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Umuahia"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adamawa"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"capital"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yola"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Akwa Ibom"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"capital"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Uyo"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anambra"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"capital"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awka"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all states in Nigeria.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://locationsng-api/api/v1/states</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<p>No parameter required</p>
+
+<h2 id="get-a-state-details">Get A State Details</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://locationsng-api/api/v1/states/lagos/details"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"minLat"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.3936419</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lagos"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"capital"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ikeja"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.5243793</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"minLong"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0982732</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"maxLat"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.7027984</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.3792057</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"maxLong"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.696727799999999</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"alias"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lagos"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"cities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Agege"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Ikeja"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"lgas"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Agege"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Ajeromi-Ifelodun"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Alimosho"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Amuwo-Odofin"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Badagry"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Apapa"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Epe"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Eti Osa"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Ibeju-Lekki"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Ifako-Ijaiye"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Ikeja"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Ikorodu"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Kosofe"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Lagos Island"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Mushin"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Lagos Mainland"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Ojo"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Oshodi-Isolo"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Shomolu"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Surulere Lagos State"</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves details about a state in Nigeria.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://locationsng-api/api/v1/states/:state/details</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>state</td>
+<td>The state of which you need the details</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-a-state-capital">Get A State Capital</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://locationsng-api/api/v1/states/lagos/capital"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">    </span><span class="err">ikeja</span><span class="w">
+
+</span></code></pre>
+
+<p>This endpoint retrieves the capital of a state in Nigeria.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://locationsng-api/api/v1/states/:state/capital</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>state</td>
+<td>The state of which you need the captial</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-cities-in-a-state">Get Cities in a State</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://locationsng-api/api/v1/states/lagos/cities"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="s2">"Agege"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Ikeja"</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves the capital of a state in Nigeria.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://locationsng-api/api/v1/states/:state/cities</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>state</td>
+<td>The state of which you need the captial</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-local-government-area-in-a-state">Get Local Government Area in a State</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://locationsng-api/api/v1/states/lagos/lgas"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="s2">"Agege"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Ajeromi-Ifelodun"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Alimosho"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Amuwo-Odofin"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Badagry"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Apapa"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Epe"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Eti Osa"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Ibeju-Lekki"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Ifako-Ijaiye"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Ikeja"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Ikorodu"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Kosofe"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Lagos Island"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Mushin"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Lagos Mainland"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Ojo"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Oshodi-Isolo"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Shomolu"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Surulere Lagos State"</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves the local government area of a state in Nigeria.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://locationsng-api/api/v1/states/:state/lgas</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>state</td>
+<td>The state of which you need its local government</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="curl">curl</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
