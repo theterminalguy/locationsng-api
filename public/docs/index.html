@@ -121,7 +121,7 @@
 - Local Government Area 
 - Streets </p>
 
-<p>locationsng-api is hosted on <a href="http://github.com/andela-sdamian/locationsng">GitHub</a></p>
+<p>locationsng-api is hosted on <a href="http://github.com/andela-sdamian/locationsng-api">GitHub</a></p>
 
 <p>Thanks.</p>
 
@@ -136,7 +136,7 @@ No Authentication require
 </aside>
 
 <h2 id="get-all-cities">Get All Cities</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"http://locationsng-api/api/v1/cities"</span>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"http://locationsng-api.herokuapp.com/api/v1/cities"</span>
 </code></pre>
 
 <blockquote>
@@ -167,14 +167,14 @@ No Authentication require
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://locationsng-api/api/v1/cities</code></p>
+<p><code class="prettyprint">GET http://locationsng-api.herokuapp.com/api/v1/cities</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
 <p>No parameter required</p>
 
 <h2 id="get-all-local-governments">Get All Local Governments</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"http://locationsng-api/api/v1/lgas"</span>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"http://locationsng-api.herokuapp.com/api/v1/lgas"</span>
 </code></pre>
 
 <blockquote>
@@ -215,14 +215,14 @@ No Authentication require
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://locationsng-api/api/v1/lgas</code></p>
+<p><code class="prettyprint">GET http://locationsng-api.herokuapp.com/api/v1/lgas</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
 <p>No parameter required</p>
 
 <h2 id="get-all-states">Get All States</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"http://locationsng-api/api/v1/states"</span>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"http://locationsng-api.herokuapp.com/api/v1/states"</span>
 </code></pre>
 
 <blockquote>
@@ -252,14 +252,14 @@ No Authentication require
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://locationsng-api/api/v1/states</code></p>
+<p><code class="prettyprint">GET http://locationsng-api.herokuapp.com/api/v1/states</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
 <p>No parameter required</p>
 
 <h2 id="get-a-state-details">Get A State Details</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"http://locationsng-api/api/v1/states/lagos/details"</span>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"http://locationsng-api.herokuapp.com/api/v1/states/lagos/details"</span>
 </code></pre>
 
 <blockquote>
@@ -308,7 +308,7 @@ No Authentication require
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://locationsng-api/api/v1/states/:state/details</code></p>
+<p><code class="prettyprint">GET http://locationsng-api.herokuapp.com/api/v1/states/:state/details</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -325,7 +325,7 @@ No Authentication require
 </tbody></table>
 
 <h2 id="get-a-state-capital">Get A State Capital</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"http://locationsng-api/api/v1/states/lagos/capital"</span>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"http://locationsng-api.herokuapp.com/api/v1/states/lagos/capital"</span>
 </code></pre>
 
 <blockquote>
@@ -339,7 +339,7 @@ No Authentication require
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://locationsng-api/api/v1/states/:state/capital</code></p>
+<p><code class="prettyprint">GET http://locationsng-api.herokuapp.com/api/v1/states/:state/capital</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -356,7 +356,7 @@ No Authentication require
 </tbody></table>
 
 <h2 id="get-cities-in-a-state">Get Cities in a State</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"http://locationsng-api/api/v1/states/lagos/cities"</span>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"http://locationsng-api.herokuapp.com/api/v1/states/lagos/cities"</span>
 </code></pre>
 
 <blockquote>
@@ -372,7 +372,7 @@ No Authentication require
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://locationsng-api/api/v1/states/:state/cities</code></p>
+<p><code class="prettyprint">GET http://locationsng-api.herokuapp.com/api/v1/states/:state/cities</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -389,7 +389,7 @@ No Authentication require
 </tbody></table>
 
 <h2 id="get-local-government-area-in-a-state">Get Local Government Area in a State</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"http://locationsng-api/api/v1/states/lagos/lgas"</span>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"http://locationsng-api.herokuapp.com/api/v1/states/lagos/lgas"</span>
 </code></pre>
 
 <blockquote>
@@ -423,7 +423,7 @@ No Authentication require
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://locationsng-api/api/v1/states/:state/lgas</code></p>
+<p><code class="prettyprint">GET http://locationsng-api.herokuapp.com/api/v1/states/:state/lgas</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
