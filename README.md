@@ -7,7 +7,8 @@ The locationsng-api is an open-source api containing list of all locations in Ni
 - Streets 
 
 Visit  http://locationsng-api.heorkuapp.com for api documentation. 
-Thanks.
+
+Thanks to [ceemion](https://github.com/ceemion/locations_ng) for his awesome Gem I leveraged on 
 
 ## License 
 ---
