@@ -6,7 +6,7 @@ The locationsng-api is an open-source api containing list of all locations in Ni
 - Local Government Area 
 - Streets 
 
-Visit http://locationsng-api.heorkuapp.com for api documentation. 
+Visit  http://locationsng-api.heorkuapp.com for api documentation. 
 Thanks.
 
 ## License 
