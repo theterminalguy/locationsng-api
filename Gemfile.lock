@@ -119,7 +119,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  locations_ng
+  locations_ng (= 0.0.5)
   pg
   pry-rails
   rack-cors

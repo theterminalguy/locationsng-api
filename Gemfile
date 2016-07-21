@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.6'
 gem 'rails-api'
-gem 'locations_ng'
+gem 'locations_ng', '0.0.5'
 gem 'rack-cors', require: 'rack/cors'
 
 group :production do
