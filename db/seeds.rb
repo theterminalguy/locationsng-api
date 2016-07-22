@@ -6,3 +6,31 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Zone.create(
+  [
+    {
+     code: "nc",
+      name: "north-central"
+    },
+    {
+     code: "ne",
+      name: "north-eastern"
+    },
+    {
+     code: "nw",
+      name: "north-western"
+    },
+    {
+     code: "se",
+      name: "south-eastern"
+    },
+    {
+     code: "ss",
+      name: "south-south"
+    },
+    {
+     code: "sw",
+      name: "south-western"
+    }
+  ]
+)
