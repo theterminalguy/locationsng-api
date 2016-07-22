@@ -1,0 +1,627 @@
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined offset: 0</p>
+<p>Filename: controllers/welcome.php</p>
+<p>Line Number: 44</p>
+
+</div><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Trying to get property of non-object</p>
+<p>Filename: controllers/welcome.php</p>
+<p>Line Number: 44</p>
+
+</div><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined offset: 0</p>
+<p>Filename: controllers/welcome.php</p>
+<p>Line Number: 44</p>
+
+</div><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Trying to get property of non-object</p>
+<p>Filename: controllers/welcome.php</p>
+<p>Line Number: 44</p>
+
+</div><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined offset: 0</p>
+<p>Filename: controllers/welcome.php</p>
+<p>Line Number: 44</p>
+
+</div><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Trying to get property of non-object</p>
+<p>Filename: controllers/welcome.php</p>
+<p>Line Number: 44</p>
+
+</div>                            
+
+                        </div>
+                        <!-- End Box -->                        
+
+                    </div>
+                    <!-- End Content -->
+
+                    <!-- Sidebar -->
+                    <div id="sidebar">
+
+                        <!-- Box -->
+                        <div class="box">
+                                                        <!-- Box Head -->
+                            <div class="box-head">
+                                <h2>Help</h2>
+                            </div>
+                            <!-- End Box Head-->
+
+                            <div class="box-content">                                
+                                <div>
+                                    <!--<p>Help contents Help contents Help contents</p>-->
+                                </div>                              
+
+                            </div>
+                                                    </div>
+                        <!-- End Box -->
+                    </div>
+                    <!-- End Sidebar -->
+
+                    <div class="cl">&nbsp;</div>			
+                </div>
+                <!-- Main -->
+            </div>
+        </div>
+        <!-- End Container -->
+
+        <!-- Footer -->
+        <div id="footer">
+            <div class="shell">
+                <span class="left">&copy; 2016 - www.nigeriapostcodes.com</span>
+                <span class="right">
+                    Designed & Managed by <a href="http://managementedgeltd.com" target="_blank" title="Management Edge">Management Edge </a>
+                </span>
+            </div>
+        </div>
+        <!-- End Footer -->
+
+    </body>
+</html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <title>Nigeria Postal Codes | Welcome</title>
+        <link rel="stylesheet" href="http://www.nigeriapostcodes.com/assets/css/style.css" type="text/css" media="all" />
+        <script type="text/javascript" src="http://www.nigeriapostcodes.com/assets/js/jquery-1.8.2.js" ></script>        
+        <script type="text/javascript" src="http://www.nigeriapostcodes.com/assets/js/common.js" ></script>
+        
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places"></script>
+			<script type="text/javascript">
+			//<![CDATA[
+			
+			var map; // Global declaration of the map
+			var iw = new google.maps.InfoWindow(); // Global declaration of the infowindow
+			var lat_longs = new Array();
+			var markers = new Array();
+			var placesService;
+			function initialize() {
+				
+				 var myLatlng = new google.maps.LatLng(9.081999, 8.675277);
+				var myOptions = {
+			  		zoom: 13,
+					center: myLatlng,
+			  		mapTypeId: google.maps.MapTypeId.ROADMAP}
+				map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+				var placesRequest = {
+				};
+			
+			placesService = new google.maps.places.PlacesService(map);
+			placesService.search(placesRequest, placesCallback);
+			
+			
+			}
+		
+		
+		function createMarker(markerOptions) {
+			var marker = new google.maps.Marker(markerOptions);
+			markers.push(marker);
+			lat_longs.push(marker.getPosition());
+			return marker;
+		}
+		function placesCallback(results, status) {
+				if (status == google.maps.places.PlacesServiceStatus.OK) {
+					for (var i = 0; i < results.length; i++) {
+						
+						var place = results[i];
+					
+						var placeLoc = place.geometry.location;
+						var placePosition = new google.maps.LatLng(placeLoc.lat(), placeLoc.lng());
+						var markerOptions = {
+				 			map: map,
+				        	position: placePosition
+				      	};
+				      	var marker = createMarker(markerOptions);
+				      	marker.set("content", place.name);
+				      	google.maps.event.addListener(marker, "click", function() {
+				        	iw.setContent(this.get("content"));
+				        	iw.open(map, this);
+				      	});
+				      	
+				      	lat_longs.push(placePosition);
+					
+					}
+					
+				}
+			}
+			
+		  	window.onload = initialize;
+			
+			//]]>
+			</script>    </head>
+    <body >
+        <!-- Header -->
+        <div id="header">
+            <div class="shell">
+                <!-- Logo + Top Nav -->
+                <div id="top">
+                    <!--<h1><a href="#">SpringTime</a></h1>-->
+                    <a href=""><div style="width:460px; height:70px; float:left; text-align:left; background: url(http://www.nigeriapostcodes.com/assets/images/nipost.png) no-repeat;"></div></a>
+                    <a href=""><div style="width:121px; height:70px; float:right; text-align:right; background: url(http://www.nigeriapostcodes.com/assets/images/coat-of-arms.png) no-repeat; "></div></a>
+                    <div style="clear: both;"></div>
+                </div>
+                <!-- End Logo + Top Nav -->
+
+                <!-- Main Nav -->
+                <div id="navigation">
+                    <ul >
+                        <li><a href="http://www.nigeriapostcodes.com/index.php/welcome" class=""><span class="blk-span">Search By Urban Location</span></a></li>
+                        <li><a href="http://www.nigeriapostcodes.com/index.php/welcome/rural" class=""><span class="blk-span">Search By Rural Location</span></a></li>
+                        <li><a href="http://www.nigeriapostcodes.com/index.php/welcome/facility" class=""><span class="blk-span">Search By Postal Facility</span></a></li>                        
+                    </ul>
+                    <div id="top-navigation" >                       
+                                                Welcome                         
+                        <!--<a href="#">Profile</a>
+                        <span>|</span>
+                        <a href="#">Log out</a>-->
+                                            </div>
+                </div>
+                <!-- End Main Nav -->
+            </div>
+        </div>
+        <!-- End Header -->
+
+        <!-- Container -->
+        <div id="container">
+            <div class="shell">
+                <!-- Breadcrumbs -->
+                                <!--<div class="small-nav">
+                    <a href="#">Dashboard</a>
+                    <span>&gt;</span>
+                    Current Articles
+                </div>
+                 -->
+                <!-- End Breadcrumbs -->
+
+
+                <!-- Main -->
+                <div id="main">
+                    <div class="cl">&nbsp;</div>
+
+                    <!-- Content -->
+                    <div id="content">
+
+                        <!-- Box -->
+                        <div class="box">
+                            <!-- Box Head -->
+                            <div class="box-head">
+                                <h2 class="left">Search By Urban Location</h2>
+                                <div class="right">&nbsp;</div>
+                            </div>
+                            <!-- End Box Head -->	
+                            <div class="table">    
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td><label>State</label></td>
+            <td><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined offset: 0</p>
+<p>Filename: ajax_loads/urban_postcode.php</p>
+<p>Line Number: 5</p>
+
+</div><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Trying to get property of non-object</p>
+<p>Filename: ajax_loads/urban_postcode.php</p>
+<p>Line Number: 5</p>
+
+</div></td>                                        
+        </tr>                                    
+        <tr>
+            <td><label>Town</label></td>
+            <td id="town_td"><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined offset: 0</p>
+<p>Filename: ajax_loads/urban_postcode.php</p>
+<p>Line Number: 9</p>
+
+</div><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Trying to get property of non-object</p>
+<p>Filename: ajax_loads/urban_postcode.php</p>
+<p>Line Number: 9</p>
+
+</div></td>                                        
+        </tr>
+        <tr>
+            <td><label>Area</label></td>
+            <td id="area_td"><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined offset: 0</p>
+<p>Filename: ajax_loads/urban_postcode.php</p>
+<p>Line Number: 13</p>
+
+</div><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Trying to get property of non-object</p>
+<p>Filename: ajax_loads/urban_postcode.php</p>
+<p>Line Number: 13</p>
+
+</div></td>                                        
+        </tr>
+            </table>  
+    <div id="postcode" style="margin-bottom: 10px;">&nbsp;</div>    
+
+</div>
+<!-- Table -->
+<div id="postcode_result" style="padding:10px; font-size: 12px;">
+            </div>
+    </div>
+    <div style="float: right; width: 55%;"><div id="map_canvas" style="width:100%; height:450px;"></div></div>
+    <div style="clear: both;"></div>
+</div><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined offset: 0</p>
+<p>Filename: controllers/welcome.php</p>
+<p>Line Number: 44</p>
+
+</div><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Trying to get property of non-object</p>
+<p>Filename: controllers/welcome.php</p>
+<p>Line Number: 44</p>
+
+</div><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined offset: 0</p>
+<p>Filename: controllers/welcome.php</p>
+<p>Line Number: 44</p>
+
+</div><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Trying to get property of non-object</p>
+<p>Filename: controllers/welcome.php</p>
+<p>Line Number: 44</p>
+
+</div><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined offset: 0</p>
+<p>Filename: controllers/welcome.php</p>
+<p>Line Number: 44</p>
+
+</div><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Trying to get property of non-object</p>
+<p>Filename: controllers/welcome.php</p>
+<p>Line Number: 44</p>
+
+</div>                            
+
+                        </div>
+                        <!-- End Box -->                        
+
+                    </div>
+                    <!-- End Content -->
+
+                    <!-- Sidebar -->
+                    <div id="sidebar">
+
+                        <!-- Box -->
+                        <div class="box">
+                                                        <!-- Box Head -->
+                            <div class="box-head">
+                                <h2>Help</h2>
+                            </div>
+                            <!-- End Box Head-->
+
+                            <div class="box-content">                                
+                                <div>
+                                    <!--<p>Help contents Help contents Help contents</p>-->
+                                </div>                              
+
+                            </div>
+                                                    </div>
+                        <!-- End Box -->
+                    </div>
+                    <!-- End Sidebar -->
+
+                    <div class="cl">&nbsp;</div>			
+                </div>
+                <!-- Main -->
+            </div>
+        </div>
+        <!-- End Container -->
+
+        <!-- Footer -->
+        <div id="footer">
+            <div class="shell">
+                <span class="left">&copy; 2016 - www.nigeriapostcodes.com</span>
+                <span class="right">
+                    Designed & Managed by <a href="http://managementedgeltd.com" target="_blank" title="Management Edge">Management Edge </a>
+                </span>
+            </div>
+        </div>
+        <!-- End Footer -->
+
+    </body>
+</html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <title>Nigeria Postal Codes | Welcome</title>
+        <link rel="stylesheet" href="http://www.nigeriapostcodes.com/assets/css/style.css" type="text/css" media="all" />
+        <script type="text/javascript" src="http://www.nigeriapostcodes.com/assets/js/jquery-1.8.2.js" ></script>        
+        <script type="text/javascript" src="http://www.nigeriapostcodes.com/assets/js/common.js" ></script>
+        
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places"></script>
+			<script type="text/javascript">
+			//<![CDATA[
+			
+			var map; // Global declaration of the map
+			var iw = new google.maps.InfoWindow(); // Global declaration of the infowindow
+			var lat_longs = new Array();
+			var markers = new Array();
+			var placesService;
+			function initialize() {
+				
+				 var myLatlng = new google.maps.LatLng(9.081999, 8.675277);
+				var myOptions = {
+			  		zoom: 13,
+					center: myLatlng,
+			  		mapTypeId: google.maps.MapTypeId.ROADMAP}
+				map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+				var placesRequest = {
+				};
+			
+			placesService = new google.maps.places.PlacesService(map);
+			placesService.search(placesRequest, placesCallback);
+			
+			
+			}
+		
+		
+		function createMarker(markerOptions) {
+			var marker = new google.maps.Marker(markerOptions);
+			markers.push(marker);
+			lat_longs.push(marker.getPosition());
+			return marker;
+		}
+		function placesCallback(results, status) {
+				if (status == google.maps.places.PlacesServiceStatus.OK) {
+					for (var i = 0; i < results.length; i++) {
+						
+						var place = results[i];
+					
+						var placeLoc = place.geometry.location;
+						var placePosition = new google.maps.LatLng(placeLoc.lat(), placeLoc.lng());
+						var markerOptions = {
+				 			map: map,
+				        	position: placePosition
+				      	};
+				      	var marker = createMarker(markerOptions);
+				      	marker.set("content", place.name);
+				      	google.maps.event.addListener(marker, "click", function() {
+				        	iw.setContent(this.get("content"));
+				        	iw.open(map, this);
+				      	});
+				      	
+				      	lat_longs.push(placePosition);
+					
+					}
+					
+				}
+			}
+			
+		  	window.onload = initialize;
+			
+			//]]>
+			</script>    </head>
+    <body >
+        <!-- Header -->
+        <div id="header">
+            <div class="shell">
+                <!-- Logo + Top Nav -->
+                <div id="top">
+                    <!--<h1><a href="#">SpringTime</a></h1>-->
+                    <a href=""><div style="width:460px; height:70px; float:left; text-align:left; background: url(http://www.nigeriapostcodes.com/assets/images/nipost.png) no-repeat;"></div></a>
+                    <a href=""><div style="width:121px; height:70px; float:right; text-align:right; background: url(http://www.nigeriapostcodes.com/assets/images/coat-of-arms.png) no-repeat; "></div></a>
+                    <div style="clear: both;"></div>
+                </div>
+                <!-- End Logo + Top Nav -->
+
+                <!-- Main Nav -->
+                <div id="navigation">
+                    <ul >
+                        <li><a href="http://www.nigeriapostcodes.com/index.php/welcome" class=""><span class="blk-span">Search By Urban Location</span></a></li>
+                        <li><a href="http://www.nigeriapostcodes.com/index.php/welcome/rural" class=""><span class="blk-span">Search By Rural Location</span></a></li>
+                        <li><a href="http://www.nigeriapostcodes.com/index.php/welcome/facility" class=""><span class="blk-span">Search By Postal Facility</span></a></li>                        
+                    </ul>
+                    <div id="top-navigation" >                       
+                                                Welcome                         
+                        <!--<a href="#">Profile</a>
+                        <span>|</span>
+                        <a href="#">Log out</a>-->
+                                            </div>
+                </div>
+                <!-- End Main Nav -->
+            </div>
+        </div>
+        <!-- End Header -->
+
+        <!-- Container -->
+        <div id="container">
+            <div class="shell">
+                <!-- Breadcrumbs -->
+                                <!--<div class="small-nav">
+                    <a href="#">Dashboard</a>
+                    <span>&gt;</span>
+                    Current Articles
+                </div>
+                 -->
+                <!-- End Breadcrumbs -->
+
+
+                <!-- Main -->
+                <div id="main">
+                    <div class="cl">&nbsp;</div>
+
+                    <!-- Content -->
+                    <div id="content">
+
+                        <!-- Box -->
+                        <div class="box">
+                            <!-- Box Head -->
+                            <div class="box-head">
+                                <h2 class="left">Search By Urban Location</h2>
+                                <div class="right">&nbsp;</div>
+                            </div>
+                            <!-- End Box Head -->	
+                            <div class="table">    
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td><label>State</label></td>
+            <td><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined offset: 0</p>
+<p>Filename: ajax_loads/urban_postcode.php</p>
+<p>Line Number: 5</p>
+
+</div><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Trying to get property of non-object</p>
+<p>Filename: ajax_loads/urban_postcode.php</p>
+<p>Line Number: 5</p>
+
+</div></td>                                        
+        </tr>                                    
+        <tr>
+            <td><label>Town</label></td>
+            <td id="town_td"><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined offset: 0</p>
+<p>Filename: ajax_loads/urban_postcode.php</p>
+<p>Line Number: 9</p>
+
+</div><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Trying to get property of non-object</p>
+<p>Filename: ajax_loads/urban_postcode.php</p>
+<p>Line Number: 9</p>
+
+</div></td>                                        
+        </tr>
+        <tr>
+            <td><label>Area</label></td>
+            <td id="area_td"><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined offset: 0</p>
+<p>Filename: ajax_loads/urban_postcode.php</p>
+<p>Line Number: 13</p>
+
+</div><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Trying to get property of non-object</p>
+<p>Filename: ajax_loads/urban_postcode.php</p>
+<p>Line Number: 13</p>
+
+</div></td>                                        
+        </tr>
+            </table>  
+    <div id="postcode" style="margin-bottom: 10px;">&nbsp;</div>    
+
+</div>
+<!-- Table -->
+<div id="postcode_result" style="padding:10px; font-size: 12px;">
+            </div>
+    </div>
+    <div style="float: right; width: 55%;"><div id="map_canvas" style="width:100%; height:450px;"></div></div>
+    <div style="clear: both;"></div>
+</div>
