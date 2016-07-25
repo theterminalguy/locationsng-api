@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160725123904) do
+ActiveRecord::Schema.define(version: 20160725134951) do
 
   create_table "areas", force: :cascade do |t|
     t.integer "town_id"
@@ -28,6 +28,20 @@ ActiveRecord::Schema.define(version: 20160725123904) do
 
   add_index "post_codes", ["area_id"], name: "index_post_codes_on_area_id"
   add_index "post_codes", ["code"], name: "index_post_codes_on_code"
+
+  create_table "rural_districts", force: :cascade do |t|
+    t.integer "rural_lga_id"
+    t.string  "name"
+  end
+
+  add_index "rural_districts", ["rural_lga_id"], name: "index_rural_districts_on_rural_lga_id"
+
+  create_table "rural_lgas", force: :cascade do |t|
+    t.integer "state_id"
+    t.string  "name"
+  end
+
+  add_index "rural_lgas", ["state_id"], name: "index_rural_lgas_on_state_id"
 
   create_table "states", force: :cascade do |t|
     t.string  "code"
