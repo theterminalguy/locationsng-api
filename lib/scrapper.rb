@@ -1,5 +1,4 @@
 
-curl -s https://nycuncubedspring15.splashthat.com | sed -n '/sfid-2694687/,/sfid-2694770/p' | grep '<a href="http' | awk ' {print $2}' | cut -d '"' -f 2 > names.txt
 
 
 
@@ -7,10 +6,6 @@ curl -s https://nycuncubedspring15.splashthat.com | sed -n '/sfid-2694687/,/sfid
 
 
 url = 'http://www.nigeriapostcodes.com/index.php/welcome/'
-
-
-
-#page.css("#state-select option").map {|item| item.content }
 
 
 for i in 1..37 do 
@@ -37,16 +32,11 @@ def town
 end 
 
 
-
-module Scrapper 
-  class Urban
-    
-    def areas 
-
-    end 
-
-    def street 
-
-    end 
-  end 
+def easy_shell 
+require 'readline'
+while input = Readline.readline("> ", true)
+  break if input == "exit"
+ 
+  system(input)
+end
 end 

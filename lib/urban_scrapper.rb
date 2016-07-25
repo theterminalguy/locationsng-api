@@ -56,9 +56,26 @@ module Scrapper
 
         system curl + nokogiri + cmd 
       end 
+    end
 
-    end 
+    def postcodes 
+      url = "#{@host}welcome/getUrbanPostCode"
+      areas = (1200..1340).to_a 
+      len = areas.last 
+      areas.each do |id| 
+        puts "Loading...#{id} of #{len}"
+
+        curl = "curl -X POST -d 'area-id=#{id}' #{url} | "
+        nokogiri = "nokogiri -e 'streets = $_.css(%q(#postcode_result div span)).drop(1).map { |i| i.content.strip }; code = $_.css(%q(#postcode_result div))[2].content; print Hash[:area_id, '#{id}', :code, code.delete(%q(^0-9)), :streets, streets], %q(, \n)'"
+
+        cmd = " >> 'data/postcodes.txt'"
+
+        system curl + nokogiri + cmd 
+      end 
+
+
+      puts "*" * 100 
+      puts "Start at #{areas.first} Stop at #{len}"
+    end  
   end 
 end
-
-
