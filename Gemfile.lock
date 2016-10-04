@@ -72,6 +72,7 @@ GEM
     rack-cors (0.4.0)
     rack-test (0.6.3)
       rack (>= 1.0)
+    railroady (1.5.1)
     rails (4.2.6)
       actionmailer (= 4.2.6)
       actionpack (= 4.2.6)
@@ -126,6 +127,7 @@ DEPENDENCIES
   pg
   pry-rails
   rack-cors
+  railroady
   rails (= 4.2.6)
   rails-api
   seed_dump

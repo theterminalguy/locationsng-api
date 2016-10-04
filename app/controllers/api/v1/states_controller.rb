@@ -3,7 +3,24 @@ module Api
     class StatesController < ApplicationController
       before_action :set_ng_state, only: [:index, :details, :capital]
       def index 
-        render json: @ng_state.all
+        if params[:id]
+          state = State.find(params[:id]) 
+          render json: state 
+        elsif params[:state_code] 
+          state = State.find_by_code(params[:state_code].upcase)
+          render json: state
+        elsif params[:state_name] 
+          state = State.find_by_name(params[:state_name].capitalize)
+          render json: state
+        else 
+          render json: @ng_state.all
+        end 
+      end 
+
+      def show 
+        state = State.find(params[:id])
+
+        render json: state
       end 
 
       def details 
