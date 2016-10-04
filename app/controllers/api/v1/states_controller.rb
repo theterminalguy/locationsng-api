@@ -2,25 +2,47 @@ module Api
   module V1 
     class StatesController < ApplicationController
       before_action :set_ng_state, only: [:index, :details, :capital]
+      before_action :set_state, only: [:index, :urban_streets, :local_gov ]
+
       def index 
-        if params[:id]
-          state = State.find(params[:id]) 
-          render json: state 
-        elsif params[:state_code] 
-          state = State.find_by_code(params[:state_code].upcase)
-          render json: state
-        elsif params[:state_name] 
-          state = State.find_by_name(params[:state_name].capitalize)
-          render json: state
+       unless @state 
+         render json: @ng_state.all
+       else 
+         render json: @state
+       end 
+      end 
+
+      def zone 
+        state_zone = if params[:zone_code]
+           Zone.find_by_code(params[:zone_code].downcase)
+                     elsif params[:zone_id]
+           Zone.find(params[:id].downcase)
+                     end 
+
+        unless state_zone 
+          render json: {message: "Please provide zone id or zone code"} 
         else 
-          render json: @ng_state.all
+          render json: state_zone.states
         end 
       end 
 
-      def show 
-        state = State.find(params[:id])
+      def urban_streets 
+        @state.towns.first.areas.first.streets
+        towns_id = @state.towns.pluck(:id)  
+        areas_id = Area.where(town_id: towns_id).pluck(:id) 
+        streets = Street.where(area_id: areas_id) 
+       
+        render json: streets  
+      end 
 
-        render json: state
+      def urban_postcode 
+        area = Area.find(params[:area_id]) 
+
+        render json: area.post_code
+      end 
+
+      def local_gov 
+        render json: @state.rural_lgas
       end 
 
       def details 
@@ -37,16 +59,26 @@ module Api
         render json: @state_cities
       end 
 
-      def lgas 
-        @state_lgas = LocationsNg::Lga.new.lgas(params[:state])
+      #def lgas 
+      #  @state_lgas = LocationsNg::Lga.new.lgas(params[:state])
 
-        render json: @state_lgas
-      end 
+      #  render json: @state_lgas
+      #end 
 
       private 
 
       def set_ng_state 
         @ng_state =  LocationsNg::State.new 
+      end 
+
+      def set_state 
+       @state =  if params[:id]
+          State.find(params[:id]) 
+        elsif params[:state_code] 
+          State.find_by_code(params[:state_code].upcase)
+        elsif params[:state_name] 
+         State.find_by_name(params[:state_name].capitalize)
+        end 
       end 
 
       def state_params 

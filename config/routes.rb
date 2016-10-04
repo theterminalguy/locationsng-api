@@ -6,7 +6,11 @@ Rails.application.routes.draw do
         get ':state/details', to: "states#details"
         get ':state/capital', to: "states#capital"  
         get ':state/cities', to: "states#cities"
-        get ':state/lgas', to: "states#lgas"
+       # get ':state/lgas', to: "states#lgas"
+        get '/zone', to: "states#zone"
+        get 'urban/streets', to: "states#urban_streets"
+        get 'urban/postcode', to: "states#urban_postcode"
+        get 'rural/lgas', to: "states#local_gov"
       end 
       
       resources :cities 
